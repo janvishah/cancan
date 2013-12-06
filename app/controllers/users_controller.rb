@@ -6,7 +6,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      redirect_to root_url, flash[:notice] = "message"
+      session[:user_id] = @user.id
+      redirect_to homes_url
     else
       render "new"
     end
