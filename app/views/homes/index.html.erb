@@ -1,7 +1,22 @@
+<div id="user_header">
+  <% if current_user %>
+    Logged in as <%= current_user.email %>.
+  <% else %>
+    <%= link_to "Sign Up", new_user_path %> or
+    <%= link_to "Log In", new_session_path %>
+   <% end %>
+</div>
+
 <h1>Articles</h1>
 <%= link_to "Create New Article", new_article_url %>
+
 <% @articles.each do |article| %>
   <div>
   	<%= link_to article.name, article_url(article.id) %>
   </div>
 <% end %>
+<br>
+</br>
+</br>
+<%= link_to "Log Out", session_path("current"), method: "delete" %>
+
