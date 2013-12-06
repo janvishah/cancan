@@ -1,6 +1,9 @@
 Cancan::Application.routes.draw do
-  get "home/index"
-
+  get "sessions/new"
+  resources :sessions
+  resources :users
+  resources :homes
+  match 'signup' => 'users#new', :via => :get
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -50,7 +53,7 @@ Cancan::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root to: 'home#index'
+  root to: 'sessions#new'
 
   # See how all your routes lay out with "rake routes"
 
