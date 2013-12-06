@@ -1,6 +1,7 @@
 <%= link_to "edit", edit_article_url(@article.id) %>
-<%= link_to "delete", article_url(article.id) %>
 
+<%= link_to 'Destroy', article_url(@article.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to "back", homes_url %>
 <h1>
 	<%= @article.name %>
 </h1>
