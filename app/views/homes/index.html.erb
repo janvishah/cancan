@@ -1,11 +1,7 @@
 <h1>Articles</h1>
-
-
+<%= link_to "Create New Article", new_article_url %>
+<% @articles.each do |article| %>
   <div>
-  	<%= link_to "Sign Up", signup_url %>
+  	<%= link_to article.name, home_url(article.id) %>
   </div>
-  <div>
-  	<%= link_to "Sign Up", signup_url %>
-  </div>
-  <div><%= submit_tag "Log In" %></div>
-<%= link_to "Sign Up", signup_url %>
+<% end
