@@ -2,6 +2,6 @@
 <%= link_to "Create New Article", new_article_url %>
 <% @articles.each do |article| %>
   <div>
-  	<%= link_to article.name, home_url(article.id) %>
+  	<%= link_to article.name, article_url(article.id) %>
   </div>
 <% end
