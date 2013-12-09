@@ -1,4 +1,6 @@
 Cancan::Application.routes.draw do
+  devise_for :users
+
   get "sessions/new"
   resources :sessions
   resources :users
