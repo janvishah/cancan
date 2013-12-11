@@ -1,13 +1,14 @@
 class ArticlesController < ApplicationController
-	load_and_authorize_resource
 	before_filter :authenticate_user!
+	load_and_authorize_resource
+	
 	def new
 		@article = Article.new
 	end
 
 	def create
 		logger.debug "params = #{params.to_s}"
-		 @article = Article.new(params[:article])
+		@article = Article.new(params[:article])
     if @article.save
       redirect_to @article
     else
@@ -17,23 +18,20 @@ class ArticlesController < ApplicationController
 
 	def show
 		@article = Article.find(params[:id])
-
 	end
 
 	def edit
-
 		 @article = Article.find(params[:id])
-		 
 	end
+
   def update
-	    @article = Article.find(params[:id])
-	      if @article.update_attributes(params[:article])
-	    redirect_to @article, notice: 'Article was successfully updated.'
-	      else
-	       render action: "edit" 
-	      end
+    @article = Article.find(params[:id])
+    if @article.update_attributes(params[:article])
+  		redirect_to @article, notice: 'Article was successfully updated.'
+    else
+     render action: "edit" 
     end
-  
+  end
 
 	def destroy
 		@article = Article.find(params[:id])

@@ -2,11 +2,10 @@ Cancan::Application.routes.draw do
   devise_for :users
 
   get "sessions/new"
-  resources :sessions
-  resources :users
+ 
   resources :homes
   resources :articles
-  match 'signup' => 'users#new', :via => :get
+  
 
   devise_scope :user do
     root to: 'devise/sessions#new'

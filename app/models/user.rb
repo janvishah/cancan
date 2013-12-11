@@ -11,8 +11,8 @@ class User < ActiveRecord::Base
  has_many :roles, through: :user_roles	
  #accepts_nested_attributes_for :user_roles
  
-def is?(role)
-  roles.include?(role.to_s)
+	def role?(role)
+    return !!self.roles.find_by_name(role.to_s)
 end
   validates_uniqueness_of :email
 end
