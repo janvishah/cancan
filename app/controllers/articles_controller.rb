@@ -1,6 +1,5 @@
 class ArticlesController < ApplicationController
-
-	
+	load_and_authorize_resource
 	before_filter :authenticate_user!
 	def new
 		@article = Article.new
@@ -18,11 +17,13 @@ class ArticlesController < ApplicationController
 
 	def show
 		@article = Article.find(params[:id])
+
 	end
 
 	def edit
 
 		 @article = Article.find(params[:id])
+		 
 	end
   def update
 	    @article = Article.find(params[:id])

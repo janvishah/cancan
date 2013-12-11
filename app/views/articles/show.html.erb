@@ -1,6 +1,10 @@
-<%= link_to "edit", edit_article_url(@article.id) %>
+<% if can? :update, @article %>
+	<%= link_to "edit", edit_article_url(@article.id) %>
+<% end %>
 
-<%= link_to 'Destroy', article_url(@article.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+<% if can? :destroy, @article %>
+	<%= link_to 'Destroy', article_url(@article.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
 <%= link_to "back", homes_url %>
 <h1>
 	<%= @article.name %>
