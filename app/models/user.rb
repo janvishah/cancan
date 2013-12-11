@@ -7,7 +7,12 @@ class User < ActiveRecord::Base
  # Setup accessible (or protected) attributes for your model
 
  attr_accessible :email, :password, :password_confirmation, :remember_me
-	
+ has_many :user_roles
+ has_many :roles, through: :user_roles	
+ #accepts_nested_attributes_for :user_roles
  
+def is?(role)
+  roles.include?(role.to_s)
+end
   validates_uniqueness_of :email
 end
