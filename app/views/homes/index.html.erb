@@ -15,6 +15,18 @@
   	<%= link_to article.name, article_url(article.id) %>
   </div>
 <% end %>
+<% @users.each do |user| %>
+  <div>
+  	<%= user.email %>
+  </div>
+
+  	<% user.roles.each do |role| %>
+  		<div>
+  			<%= role.name %>
+  		</div>
+  	<% end %>
+  
+<% end %>
 <br>
 </br>
 </br>
